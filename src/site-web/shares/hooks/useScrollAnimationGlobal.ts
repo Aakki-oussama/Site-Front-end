@@ -27,7 +27,7 @@ export function useScrollAnimationGlobal() {
     // Attend que le navigateur termine le rendu avant de lire le DOM
     const rafId = requestAnimationFrame(() => {
       // Sélectionner tous les éléments avec les classes d'animation
-      const elements = document.querySelectorAll('.animate-fade-up-on-scroll, .animate-fade-up-y-on-scroll, .animate-progress-bar');
+      const elements = document.querySelectorAll('.animate-fade-up-on-scroll, .animate-fade-up-y-on-scroll, .animate-progress-bar, .animate-gallery-card');
       
       // Si aucun élément, on ne fait rien
       if (elements.length === 0) return;
