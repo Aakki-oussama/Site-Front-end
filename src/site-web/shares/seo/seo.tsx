@@ -3,7 +3,7 @@ import { APP_NAME, CONTACT_INFO, SEO_INFO } from '@/site-web/shares/core/constan
 // SEO Configuration - All SEO-related metadata in one place
 export const SEO_CONFIG = {
     // Canonical URL - prevents duplicate content issues
-    canonicalUrl: "https://ecolaundry.ma",
+    canonicalUrl: "https://ecolaundry.online",
 
     // Open Graph - Controls how your site appears when shared on Facebook, LinkedIn, WhatsApp
     openGraph: {
@@ -12,11 +12,11 @@ export const SEO_CONFIG = {
         siteName: "Ecolaundry",
         title: "Ecolaundry - Pressing Éco-Responsable à Meknès",
         description: "Service de blanchisserie premium à Meknès. Lavage au kilo à partir de 15 DH/kg, nettoyage de tapis, repassage de luxe et livraison à domicile. Collecte express en moins de 60 minutes.",
-        image: "https://ecolaundry.ma/images/avif/seo/brand.png",
+        image: "https://ecolaundry.online/images/avif/seo/brand.png",
         imageAlt: "Ecolaundry - Service de pressing éco-responsable à Meknès",
         imageWidth: "1200",
         imageHeight: "630",
-        url: "https://ecolaundry.ma",
+        url: "https://ecolaundry.online",
     },
 };
 

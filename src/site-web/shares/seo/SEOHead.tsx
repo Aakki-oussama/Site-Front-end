@@ -35,12 +35,6 @@ export default function SEOHead() {
     updateMetaTag('og:site_name', SEO_CONFIG.openGraph.siteName, true)
     updateMetaTag('og:locale', SEO_CONFIG.openGraph.locale, true)
 
-    // Twitter Card Meta Tags
-    updateMetaTag('twitter:card', 'summary_large_image')
-    updateMetaTag('twitter:title', SEO_CONFIG.openGraph.title)
-    updateMetaTag('twitter:description', SEO_CONFIG.openGraph.description)
-    updateMetaTag('twitter:image', SEO_CONFIG.openGraph.image)
-
     // Canonical URL
     let canonical = document.querySelector('link[rel="canonical"]')
     if (!canonical) {

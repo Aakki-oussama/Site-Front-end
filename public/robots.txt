@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ecolaundry.ma/sitemap.xml
+Sitemap: https://ecolaundry.online/sitemap.xml
 

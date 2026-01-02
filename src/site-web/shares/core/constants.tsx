@@ -27,7 +27,7 @@ export const CONTACT_INFO = {
     full: "Ave Zitoune, Meknès 50000, Morocco"
   },
   phone: "+212664755026",
-  email: "contact@ecolaundry.ma", // Update with your real email
+  email: "contact@ecolaundry.online", // Update with your real email
   whatsapp: {
     number: "+212664755026",
     message: "Bonjour Ecolaundry, je souhaite commander un service à Meknès.",
