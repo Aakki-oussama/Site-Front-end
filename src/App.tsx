@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import Header from '@/site-web/shares/Header'
 import Footer from '@/site-web/shares/Footer'
 import Hero from '@/site-web/body/1-hero/Hero'
+import ErrorBoundary from '@/site-web/shares/errorboundary/ErrorBoundary'
 import './App.css'
 
 // Lazy load sections (load when needed, not all at once)
@@ -26,27 +27,41 @@ function App() {
       <Header />
       <main className="min-h-screen">
         <Hero />
-        <Suspense fallback={<SectionLoader />}>
-          <Services />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <Timeline />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <WhyUs />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <Galerie />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <Contact />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <Testimonials />
-        </Suspense>
-        <Suspense fallback={<SectionLoader />}>
-          <Faq />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Services />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Timeline />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <WhyUs />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Galerie />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Contact />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Testimonials />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <Suspense fallback={<SectionLoader />}>
+            <Faq />
+          </Suspense>
+        </ErrorBoundary>
       </main>
       <Footer />
     </>

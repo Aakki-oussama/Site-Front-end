@@ -289,3 +289,54 @@
   max-height: 0;
   opacity: 0;
 }
+
+/* ============================================
+ LOADER ANIMATIONS
+ ============================================ */
+
+/* Logo scale + fade in */
+@keyframes loader-logo {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-loader-logo {
+  animation: loader-logo 0.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Letter fade up */
+@keyframes loader-letter {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-loader-letter {
+  animation: loader-letter 0.5s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* Progress bar sliding */
+@keyframes loader-progress {
+  from { left: -100%; }
+  to { left: 100%; }
+}
+.animate-loader-progress {
+  animation: loader-progress 1.5s ease-in-out infinite;
+  will-change: left;
+}
+
+/* Tagline fade in */
+@keyframes loader-tagline {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-loader-tagline {
+  animation: loader-tagline 0.5s ease-out 0.8s forwards;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* Loader exit fade out */
+.loader-exit {
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.43, 0.13, 0.23, 0.96);
+}
