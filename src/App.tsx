@@ -3,6 +3,8 @@ import Header from '@/site-web/shares/Header'
 import Footer from '@/site-web/shares/Footer'
 import Hero from '@/site-web/body/1-hero/Hero'
 import ErrorBoundary from '@/site-web/shares/errorboundary/ErrorBoundary'
+import Loader from '@/site-web/shares/animation/Loader'
+import { useLoader } from '@/site-web/shares/hooks/useLoader'
 import './App.css'
 
 // Lazy load sections (load when needed, not all at once)
@@ -22,8 +24,13 @@ const SectionLoader = () => (
 )
 
 function App() {
+  const { isLoading, isExiting } = useLoader()
+
   return (
     <>
+      {/* Simple: Loader on top, site below - loader z-index covers everything */}
+      {isLoading && <Loader isExiting={isExiting} />}
+      
       <Header />
       <main className="min-h-screen">
         <Hero />
