@@ -2,10 +2,12 @@ import { useState, useEffect } from 'react';
 import { Menu, X, LogIn } from 'lucide-react';
 import { NAV_LINKS, APP_NAME } from '@/site-web/shares/core/constants';
 import { ANIMATION_CONFIG } from '@/site-web/shares/animation/animation';
+import ComingSoonModal from '@/site-web/body/2-service/components/ComingSoonModal';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     let lastCall = 0;
@@ -70,6 +72,7 @@ export default function Header() {
 
           <div className="flex items-center gap-4">
             <button
+              onClick={() => setIsModalOpen(true)}
               className="hidden sm:flex items-center gap-2 text-brand hover:text-highlight transition-colors font-semibold"
               aria-label="Connexion"
             >
@@ -112,6 +115,10 @@ export default function Header() {
             </a>
           ))}
           <button
+            onClick={() => {
+              setIsModalOpen(true);
+              setIsOpen(false); // Close mobile menu when opening modal
+            }}
             className="flex items-center gap-2 text-brand hover:text-highlight transition-colors font-semibold text-xl"
             aria-label="Connexion"
           >
@@ -120,6 +127,9 @@ export default function Header() {
           </button>
         </div>
       </div>
+
+      {/* Login Modal */}
+      {isModalOpen && <ComingSoonModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />}
     </header>
   );
 }
