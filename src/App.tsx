@@ -5,6 +5,7 @@ import Services from '@/site-web/body/2-service/Services'
 import Timeline from '@/site-web/body/3-timeline/Timeline'
 import WhyUs from '@/site-web/body/4-about/Whyus'
 import Galerie from '@/site-web/body/5-galery/Galerie'
+import Contact from '@/site-web/body/6-contact/Contact'
 import './App.css'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Timeline />
         <WhyUs />
         <Galerie />
+        <Contact />
       </main>
       <Footer />
     </>
