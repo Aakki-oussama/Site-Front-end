@@ -7,6 +7,7 @@ import WhyUs from '@/site-web/body/4-about/Whyus'
 import Galerie from '@/site-web/body/5-galery/Galerie'
 import Contact from '@/site-web/body/6-contact/Contact'
 import Testimonials from '@/site-web/body/7-testimonial/Testimonials'
+import Faq from '@/site-web/body/8-faq/Faq'
 import './App.css'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Galerie />
         <Contact />
         <Testimonials />
+        <Faq />
       </main>
       <Footer />
     </>
