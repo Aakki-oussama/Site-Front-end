@@ -1,6 +1,7 @@
 import Header from '@/site-web/shares/Header'
 import Footer from '@/site-web/shares/Footer'
 import Hero from '@/site-web/body/1-hero/Hero'
+import Services from '@/site-web/body/2-service/Services'
 import './App.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <main className="min-h-screen">
         <Hero />
+        <Services />
       </main>
       <Footer />
     </>
