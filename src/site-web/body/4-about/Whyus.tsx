@@ -49,7 +49,7 @@ export default function WhyUs() {
 
           {/* Right Column: Features Grid */}
           <div className="lg:col-span-7 grid sm:grid-cols-2 gap-6">
-            {REASONS.map((reason, index) => (
+            {REASONS.map((reason) => (
               <div
                 key={reason.id}
                 className={`group relative p-8 rounded-[2.5rem] bg-white dark:bg-white/5 border border-slate-100 dark:border-white/5 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 animate-fade-up-on-scroll ${reason.border} border-transparent`}
