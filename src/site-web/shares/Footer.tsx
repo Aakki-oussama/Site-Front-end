@@ -1,4 +1,5 @@
 import { APP_NAME, ICONS, NAV_LINKS, CONTACT_INFO } from '@/site-web/shares/core/constants';
+import WhatsAppIcon from '@/site-web/shares/components/ui/whatsapp-icon';
 
 export default function Footer() {
   return (
@@ -43,7 +44,7 @@ export default function Footer() {
                 aria-label="Contactez-nous sur WhatsApp"
                 className="w-12 h-12 rounded-2xl bg-white/50 dark:bg-white/5 flex items-center justify-center text-slate-400 hover:text-[#25D366] hover:bg-white dark:hover:bg-white/10 transition-all border border-brand/5 shadow-sm"
               >
-                {ICONS.WhatsApp}
+                <WhatsAppIcon size={24} />
               </a>
             </div>
           </div>
