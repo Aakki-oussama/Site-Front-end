@@ -81,6 +81,7 @@ export default function Hero() {
                 src="/images/avif/hero.avif"
                 alt="Ecolaundry Meknes"
                 fetchPriority="high"
+                loading="eager"
                 className="w-full object-cover aspect-[4/5] md:max-h-[450px] lg:max-h-none hover:scale-105 transition-transform duration-700"
               />
             </div>
