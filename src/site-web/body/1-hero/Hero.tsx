@@ -2,6 +2,7 @@ import { CheckCircle2, Truck } from 'lucide-react';
 import { HERO_FEATURES } from '@/site-web/body/1-hero/core/constants';
 import { Button } from '@/site-web/shares/components/ui/button';
 import Lightbox from '@/site-web/body/1-hero/components/lightbox';
+import { CONTACT_INFO } from '@/site-web/shares/core/constants';
 
 export default function Hero() {
   return (
@@ -36,9 +37,17 @@ export default function Hero() {
               <Button
                 variant="brand"
                 size="site-md"
-                aria-label="Bouton de commande - Fonctionnalité à venir"
+                className="w-full sm:w-auto"
+                asChild
+                aria-label="Contactez-nous sur WhatsApp"
               >
-                Empty
+                <a
+                  href={CONTACT_INFO.whatsapp.url(CONTACT_INFO.whatsapp.number, CONTACT_INFO.whatsapp.message)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Appliquer maintenant
+                </a>
               </Button>
               <Lightbox
                 imageSrc="/images/avif/Tarif/Tarif.avif"
@@ -47,6 +56,7 @@ export default function Hero() {
                   <Button
                     variant="brand-outline"
                     size="site-md"
+                    className="w-full sm:w-auto"
                     aria-label="Voir nos tarifs"
                   >
                     Nos Tarifs
