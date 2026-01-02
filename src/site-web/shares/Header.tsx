@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, LogIn } from 'lucide-react';
+import { Menu, X, LogIn, Sun, Moon } from 'lucide-react';
 import { NAV_LINKS, APP_NAME } from '@/site-web/shares/core/constants';
 import { ANIMATION_CONFIG } from '@/site-web/shares/animation/animation';
+import { useTheme } from '@/site-web/shares/hooks/useTheme';
 import ComingSoonModal from '@/site-web/body/2-service/components/ComingSoonModal';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     let lastCall = 0;
@@ -71,6 +73,15 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors"
+              aria-label={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+            
             <button
               onClick={() => setIsModalOpen(true)}
               className="hidden sm:flex items-center gap-2 text-brand hover:text-highlight transition-colors font-semibold"
@@ -114,6 +125,17 @@ export default function Header() {
               {link.name}
             </a>
           ))}
+          
+          {/* Theme Toggle Button - Mobile */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-2 text-brand hover:text-highlight transition-colors font-semibold text-xl"
+            aria-label={theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'}
+          >
+            {theme === 'dark' ? <Sun size={28} /> : <Moon size={28} />}
+            <span>{theme === 'dark' ? 'Mode Clair' : 'Mode Sombre'}</span>
+          </button>
+          
           <button
             onClick={() => {
               setIsModalOpen(true);
