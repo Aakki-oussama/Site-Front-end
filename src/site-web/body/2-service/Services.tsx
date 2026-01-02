@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { SERVICES, SERVICE_IMAGES } from '@/site-web/body/2-service/core/constants';
 import { ICONS } from '@/site-web/shares/core/constants';
 import CategoryBadge from '@/site-web/body/2-service/components/CategoryBadge';
+import ComingSoonModal from '@/site-web/body/2-service/components/ComingSoonModal';
 import { Button } from '@/site-web/shares/components/ui/button';
 import { useScrollAnimation } from '@/site-web/shares/hooks/useScrollAnimation';
 import { useScrollAnimationGlobal } from '@/site-web/shares/hooks/useScrollAnimationGlobal';
 
 export default function Services() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const headerRef = useScrollAnimation<HTMLDivElement>();
   const descriptionRef = useScrollAnimation<HTMLDivElement>();
   
@@ -111,11 +114,15 @@ export default function Services() {
             size="site-lg"
             className="relative z-10 shrink-0 font-black w-full lg:w-auto"
             aria-label="Demander un devis gratuit pour articles volumineux"
+            onClick={() => setIsModalOpen(true)}
           >
             Demander un devis gratuit
           </Button>
         </div>
       </div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </section>
   );
 }
