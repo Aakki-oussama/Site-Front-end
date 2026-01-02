@@ -46,7 +46,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Appliquer maintenant
+                  Appeler maintenant
                 </a>
               </Button>
               <Lightbox
