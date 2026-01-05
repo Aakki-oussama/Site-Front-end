@@ -1,7 +1,8 @@
+import { memo } from 'react';
 import { APP_NAME, ICONS, NAV_LINKS, CONTACT_INFO } from '@/site-web/shares/core/constants';
 import WhatsAppIcon from '@/site-web/shares/components/ui/whatsapp-icon';
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="bg-light dark:bg-dark-bg pt-24 pb-12 border-t border-brand/10">
       <div className="container mx-auto px-6">
@@ -125,3 +126,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default memo(Footer);

@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { memo, useState, useEffect } from 'react';
 import { Menu, X, LogIn, Sun, Moon } from 'lucide-react';
 import { NAV_LINKS, APP_NAME } from '@/site-web/shares/core/constants';
 import { ANIMATION_CONFIG } from '@/site-web/shares/animation/animation';
 import { useTheme } from '@/site-web/shares/hooks/useTheme';
 import ComingSoonModal from '@/site-web/body/2-service/components/ComingSoonModal';
 
-export default function Header() {
+function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -155,3 +155,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default memo(Header);

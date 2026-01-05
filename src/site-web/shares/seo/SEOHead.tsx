@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
+import { memo, useEffect } from 'react'
 import { SEO_CONFIG, generateStructuredData } from './seo'
 
-export default function SEOHead() {
+function SEOHead() {
   useEffect(() => {
     // Update title
     document.title = SEO_CONFIG.openGraph.title
@@ -59,4 +59,6 @@ export default function SEOHead() {
 
   return null // This component doesn't render anything
 }
+
+export default memo(SEOHead);
 

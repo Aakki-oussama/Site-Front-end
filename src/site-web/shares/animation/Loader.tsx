@@ -1,8 +1,10 @@
+import { memo } from 'react';
+
 interface LoaderProps {
     isExiting?: boolean;
   }
   
-  export default function Loader({ isExiting = false }: LoaderProps) {
+  function Loader({ isExiting = false }: LoaderProps) {
     return (
       <div
         className={`fixed inset-0 z-[9999] bg-light dark:bg-dark-bg flex items-center justify-center overflow-hidden ${
@@ -39,4 +41,6 @@ interface LoaderProps {
       </div>
     );
   }
+
+  export default memo(Loader);
   

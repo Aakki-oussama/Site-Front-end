@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { SERVICES, SERVICE_IMAGES } from '@/site-web/body/2-service/core/constants';
 import { ICONS } from '@/site-web/shares/core/constants';
 import CategoryBadge from '@/site-web/body/2-service/components/CategoryBadge';
@@ -7,7 +7,7 @@ import { Button } from '@/site-web/shares/components/ui/button';
 import { useScrollAnimation } from '@/site-web/shares/hooks/useScrollAnimation';
 import { useScrollAnimationGlobal } from '@/site-web/shares/hooks/useScrollAnimationGlobal';
 
-export default function Services() {
+function Services() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const headerRef = useScrollAnimation<HTMLDivElement>();
   const descriptionRef = useScrollAnimation<HTMLDivElement>();
@@ -126,3 +126,5 @@ export default function Services() {
     </section>
   );
 }
+
+export default memo(Services);

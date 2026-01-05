@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import { CheckCircle2, Truck } from 'lucide-react';
 import { HERO_FEATURES } from '@/site-web/body/1-hero/core/constants';
 import { Button } from '@/site-web/shares/components/ui/button';
 import Lightbox from '@/site-web/body/1-hero/components/lightbox';
 import { CONTACT_INFO } from '@/site-web/shares/core/constants';
 
-export default function Hero() {
+function Hero() {
   return (
     <section id="home" className="relative min-h-screen pt-32 pb-20 flex items-center overflow-hidden bg-light dark:bg-dark-bg">
       <div className="container mx-auto px-6">
@@ -108,3 +109,5 @@ export default function Hero() {
     </section>
   );
 }
+
+export default memo(Hero);
