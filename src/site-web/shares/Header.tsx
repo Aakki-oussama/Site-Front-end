@@ -52,7 +52,7 @@ function Header() {
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             aria-label={`${APP_NAME} - Retour à l'accueil`}
           >
-            <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center animate-liquid">
+            <div className="w-10 h-10 bg-brand rounded-xl flex items-center justify-center">
               <span className="text-white font-bold text-xl">E</span>
             </div>
             <span className="text-brand font-extrabold text-2xl tracking-tight hidden sm:block uppercase">
