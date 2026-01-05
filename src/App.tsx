@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react'
+import { lazy, Suspense, useEffect } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 import Header from '@/site-web/shares/Header'
 import Footer from '@/site-web/shares/Footer'
@@ -9,11 +9,11 @@ import SEOHead from '@/site-web/shares/seo/SEOHead'
 import { useLoader } from '@/site-web/shares/hooks/useLoader'
 import './App.css'
 
-// Load Services immediately (visible on first load - above the fold)
+// Load critical sections immediately (visible on first load - above the fold)
 import Services from '@/site-web/body/2-service/Services'
+import Timeline from '@/site-web/body/3-timeline/Timeline'
 
-// Lazy load sections (load when needed, not all at once)
-const Timeline = lazy(() => import('@/site-web/body/3-timeline/Timeline'))
+// Lazy load sections below the fold (load when needed, not all at once)
 const WhyUs = lazy(() => import('@/site-web/body/4-about/Whyus'))
 const Galerie = lazy(() => import('@/site-web/body/5-galery/Galerie'))
 const Contact = lazy(() => import('@/site-web/body/6-contact/Contact'))
@@ -30,6 +30,18 @@ const SectionLoader = () => (
 function App() {
   const { isLoading, isExiting } = useLoader()
 
+  // Prefetch critical sections after initial load (improves perceived performance)
+  useEffect(() => {
+    // Prefetch WhyUs, Galerie, and Testimonials after page load (non-blocking)
+    const prefetchTimer = setTimeout(() => {
+      import('@/site-web/body/4-about/Whyus')
+      import('@/site-web/body/5-galery/Galerie')
+      import('@/site-web/body/7-testimonial/Testimonials')
+    }, 2000) // Wait 2s after page load to not interfere with critical resources
+
+    return () => clearTimeout(prefetchTimer)
+  }, [])
+
   return (
     <>
       <SEOHead />
@@ -39,14 +51,12 @@ function App() {
       <Header />
       <main className="min-h-screen">
         <Hero />
-        {/* Services loaded immediately (critical section - above the fold) */}
+        {/* Critical sections - load immediately (above the fold) */}
         <ErrorBoundary>
           <Services />
         </ErrorBoundary>
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader />}>
-            <Timeline />
-          </Suspense>
+          <Timeline />
         </ErrorBoundary>
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader />}>
