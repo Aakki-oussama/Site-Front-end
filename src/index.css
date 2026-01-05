@@ -186,35 +186,37 @@
   transform: translateY(0);
 }
 
-/* Progress bar animation */
+/* Progress bar animation - OPTIMIZED: Use transform for GPU acceleration */
 @keyframes progress-bar {
   from {
-    width: 0%;
+    transform: scaleX(0);
   }
   to {
-    width: 100%;
+    transform: scaleX(1);
   }
 }
 
 .animate-progress-bar {
-  width: 0%;
-  transition: width 1.5s ease-in-out;
-  will-change: width;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.5s ease-in-out;
+  will-change: transform;
 }
 
 .animate-progress-bar.visible {
-  width: 100%;
+  transform: scaleX(1);
 }
 
-/* Vertical progress bar for mobile */
+/* Vertical progress bar for mobile - OPTIMIZED: Use transform for GPU acceleration */
 .animate-progress-bar-vertical {
-  height: 0%;
-  transition: height 1.5s ease-in-out;
-  will-change: height;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.5s ease-in-out;
+  will-change: transform;
 }
 
 .animate-progress-bar-vertical.visible {
-  height: 100%;
+  transform: scaleY(1);
 }
 
 /* ============================================
@@ -273,21 +275,26 @@
  FAQ ACCORDION ANIMATIONS
  ============================================ */
 
-/* FAQ answer expand/collapse animation */
+/* FAQ answer expand/collapse animation - OPTIMIZED: Use grid for GPU acceleration */
 .faq-answer {
-  max-height: 0;
+  display: grid;
+  grid-template-rows: 0fr;
   opacity: 0;
-  transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-  will-change: max-height, opacity;
+  transition: grid-template-rows 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  will-change: grid-template-rows, opacity;
+}
+
+.faq-answer > * {
+  overflow: hidden;
 }
 
 .faq-answer-open {
-  max-height: 1000px; /* Large enough for any FAQ answer */
+  grid-template-rows: 1fr;
   opacity: 1;
 }
 
 .faq-answer-closed {
-  max-height: 0;
+  grid-template-rows: 0fr;
   opacity: 0;
 }
 
