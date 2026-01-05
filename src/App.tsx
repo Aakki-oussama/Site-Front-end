@@ -9,8 +9,10 @@ import SEOHead from '@/site-web/shares/seo/SEOHead'
 import { useLoader } from '@/site-web/shares/hooks/useLoader'
 import './App.css'
 
+// Load Services immediately (visible on first load - above the fold)
+import Services from '@/site-web/body/2-service/Services'
+
 // Lazy load sections (load when needed, not all at once)
-const Services = lazy(() => import('@/site-web/body/2-service/Services'))
 const Timeline = lazy(() => import('@/site-web/body/3-timeline/Timeline'))
 const WhyUs = lazy(() => import('@/site-web/body/4-about/Whyus'))
 const Galerie = lazy(() => import('@/site-web/body/5-galery/Galerie'))
@@ -37,10 +39,9 @@ function App() {
       <Header />
       <main className="min-h-screen">
         <Hero />
+        {/* Services loaded immediately (critical section - above the fold) */}
         <ErrorBoundary>
-          <Suspense fallback={<SectionLoader />}>
-            <Services />
-          </Suspense>
+          <Services />
         </ErrorBoundary>
         <ErrorBoundary>
           <Suspense fallback={<SectionLoader />}>
