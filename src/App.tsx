@@ -1,5 +1,6 @@
 import { lazy, Suspense, useEffect } from 'react'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import Header from '@/site-web/shares/Header'
 import Footer from '@/site-web/shares/Footer'
 import Hero from '@/site-web/body/1-hero/Hero'
@@ -86,6 +87,7 @@ function App() {
       </main>
       <Footer />
       <Analytics />
+      <SpeedInsights />
     </>
   )
 }
